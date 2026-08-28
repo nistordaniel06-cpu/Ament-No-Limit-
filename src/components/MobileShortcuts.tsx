@@ -1,25 +1,25 @@
-"use client";
-
-import { Star, ShoppingBag, CalendarDays, LayoutDashboard } from "lucide-react";
+import { CalendarDays, LayoutDashboard, ShoppingBag, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 const shortcuts = [
-  { label: "Evaluare", Icon: Star },
-  { label: "Magazin", Icon: ShoppingBag },
-  { label: "Scadențe", Icon: CalendarDays },
-  { label: "Admin", Icon: LayoutDashboard },
+  { label: "Evaluare", Icon: Sparkles, href: "/evaluare" },
+  { label: "Magazin", Icon: ShoppingBag, href: "/#magazin" },
+  { label: "Scadențe", Icon: CalendarDays, href: "/#scadente" },
+  { label: "Admin", Icon: LayoutDashboard, href: "/#admin" },
 ];
 
 export default function MobileShortcuts() {
   return (
-    <div className="grid grid-cols-4 gap-3 md:hidden">
-      {shortcuts.map(({ label, Icon }) => (
-        <button
+    <div className="grid grid-cols-4 gap-2.5 md:hidden pt-2">
+      {shortcuts.map(({ label, Icon, href }) => (
+        <Link
           key={label}
-          className="flex flex-col items-center gap-2 bg-white border border-gray-100 shadow-sm rounded-2xl py-4 hover:border-[#C89D3C] hover:text-[#C89D3C] text-[#6B7280] transition-colors"
+          href={href}
+          className="tap flex flex-col items-center gap-2 rounded-ios bg-ios-card py-4 text-ios-label-2"
         >
-          <Icon size={22} />
-          <span className="text-xs font-medium">{label}</span>
-        </button>
+          <Icon size={22} className="text-gold" />
+          <span className="text-[12px] font-medium">{label}</span>
+        </Link>
       ))}
     </div>
   );

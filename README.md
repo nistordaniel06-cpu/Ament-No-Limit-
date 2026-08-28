@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amanet NO LIMIT
+
+Aplicație Next.js (App Router) pentru o casă de amanet: pagină de prezentare + fluxul **„Cere evaluare"**.
+
+## Fluxul „Cere evaluare"
+
+- Pagina: `src/app/evaluare/page.tsx` + formularul `src/components/EvaluareForm.tsx`
+- Model de date + validare partajată client/server: `src/lib/evaluare.ts`
+- API: `POST /api/evaluare` (`src/app/api/evaluare/route.ts`) — validează, salvează pozele în
+  `data/uploads/` și adaugă o linie în `data/evaluari.jsonl` (folderul `data/` e ignorat de git).
+  Pe hosting fără disc scriabil persistarea e sărită, dar răspunsul rămâne `ok`.
+- După trimitere, utilizatorul poate trimite rezumatul și pe WhatsApp.
+
+## Configurare
+
+Editează `src/lib/config.ts` cu datele reale (număr WhatsApp în format internațional fără `+`,
+telefon, oraș). Butoanele „WhatsApp" și mesajele pre-completate folosesc aceste valori.
+
+## Note platformă
+
+Turbopack nu rulează pe Android/arm64 (Termux), de aceea scripturile `dev` și `build` folosesc
+`--webpack`. Pe alte platforme poți reveni la Turbopack (scoate flagul).
 
 ## Getting Started
 
