@@ -69,8 +69,8 @@ const tasks = [
 
 export default function AdminPanel() {
   return (
-    <section className="bg-[#121417] rounded-2xl p-6 space-y-6 text-white">
-      <h2 className="text-xl font-bold">Admin — Panou de control</h2>
+    <section className="bg-ink rounded-ios p-6 space-y-6 text-white">
+      <h2 className="text-xl font-bold tracking-tight">Admin — Panou de control</h2>
 
       {/* Metrics */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
